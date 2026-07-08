@@ -8,8 +8,6 @@ Posts the top FNF mods from GameBanana to a Discord channel every 2 hours — al
 
 > this is just a fun thing. commit names are stupid and vary. i don't take this project seriously.
 
----
-
 ### docs
 
 - **[setup](docs/setup.md)** - how to fork, deploy, and reset state
