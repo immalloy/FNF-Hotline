@@ -8,11 +8,13 @@ Posts the top FNF mods from GameBanana to a Discord channel every 2 hours — al
 
 > this is just a fun thing. commit names are stupid and vary. i don't take this project seriously.
 
-## docs
+---
 
-- **[setup](docs/setup.md)** — how to fork, deploy, and reset state
-- **[config](docs/config.md)** — enable/disable periods, rename, recolor, blacklist terms
+### docs
 
-## live view
+- **[setup](docs/setup.md)** - how to fork, deploy, and reset state
+- **[config](docs/config.md)** - enable/disable periods, rename, recolor, blacklist terms
+
+### live view
 
 See it live in [#funkin-hotline](https://discord.com/channels/1447703759638626327/1524145705936097351) on the [Funkin Hotline Discord](https://discord.gg/yQvZ69fsm3).
