@@ -17,10 +17,10 @@ Edit `config.json` in the repo root.
 ```
 
 Each entry:
-- `enabled` — `false` to hide this period entirely
-- `name` — displayed in the embed title
-- `emoji` — shown before the name
-- `color` — hex color for the embed accent bar
+- `enabled` , `false` to hide this period entirely
+- `name` , displayed in the embed title
+- `emoji` , shown before the name
+- `color` , hex color for the embed accent bar
 
 See what periods the API actually returns:
 
@@ -34,7 +34,7 @@ python scripts/list-periods.py
 "max_per_period": 3
 ```
 
-How many mods to show per period (1–3).
+How many mods to show per period (1-3).
 
 ## term blacklist
 
