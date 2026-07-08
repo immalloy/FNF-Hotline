@@ -1,5 +1,6 @@
 {
   "max_per_period": 3,
+  "blacklist": [],
   "periods": {
     "alltime": { "enabled": true,  "name": "Best of All Time",   "emoji": "\uD83D\uDC51", "color": "#e74c3c" },
     "year":    { "enabled": true,  "name": "Best of the Year",   "emoji": "\uD83C\uDFC5", "color": "#e91e63" },

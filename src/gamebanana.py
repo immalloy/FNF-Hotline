@@ -20,9 +20,17 @@ def _load_config():
             labels[key] = {'emoji': opts['emoji'], 'name': opts['name']}
             colors[key] = int(opts['color'].lstrip('#'), 16)
 
-    return periods, labels, colors, cfg.get('max_per_period', 3)
+    return periods, labels, colors, cfg.get('max_per_period', 3), cfg.get('blacklist', [])
 
-PERIODS, LABELS, COLORS, MAX_PER_PERIOD = _load_config()
+PERIODS, LABELS, COLORS, MAX_PER_PERIOD, BLACKLIST = _load_config()
+
+def _is_blacklisted(mod):
+    name = (mod.get('_sName') or '').lower()
+    author = (mod.get('_aSubmitter', {}).get('_sName') or '').lower()
+    for term in BLACKLIST:
+        if term.lower() in name or term.lower() in author:
+            return True
+    return False
 
 def fetch_top_subs():
     req = urllib.request.Request(TOP_SUBS_URL, headers={'User-Agent': 'Funkin-Hotline/1.0'})
@@ -33,7 +41,8 @@ def fetch_top_subs():
     for item in data:
         period = item.get('_sPeriod')
         if period in PERIODS and len(result[period]) < MAX_PER_PERIOD:
-            result[period].append(item)
+            if not _is_blacklisted(item):
+                result[period].append(item)
     return result
 
 def get_mod_key(mod):

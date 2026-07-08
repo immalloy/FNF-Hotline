@@ -29,6 +29,14 @@ python scripts/list-periods.py
 
 Set `"enabled": false` to hide a period. Change `name`, `emoji`, or `color` to customize.
 
+### term blacklist
+
+Add terms to `blacklist` to skip mods whose name or author matches it picks the next one from the API:
+
+```json
+"blacklist": ["nsfw", "18+", "gore", "some-author-name"]
+```
+
 ## live view
 
 See it live in [#funkin-hotline](https://discord.com/channels/1447703759638626327/1524145705936097351) on the [Funkin Hotline Discord](https://discord.gg/yQvZ69fsm3).
