@@ -8,7 +8,7 @@ this is just a fun thing. commit names are stupid and vary. i don't take this pr
 
 ## live view
 
-[#funkin-hotline](https://discord.com/channels/1447703759638626327/1524145705936097351)
+See it live in [#funkin-hotline](https://discord.com/channels/1447703759638626327/1524145705936097351) on the [Funkin Hotline Discord](https://discord.gg/yQvZ69fsm3).
 
 ## structure
 
