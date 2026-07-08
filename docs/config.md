@@ -43,3 +43,11 @@ How many mods to show per period (1-3).
 ```
 
 Mods whose name or author contains any term are skipped. The next available mod from the API takes their place.
+
+## flagged content
+
+```json
+"show_flagged_content": false
+```
+
+The GameBanana API tags content with visibility ratings (NSFW, sensitive, etc.). By default the API only returns safe ("show") content. Set to `true` to include flagged content if the API ever exposes it.

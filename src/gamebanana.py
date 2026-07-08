@@ -20,9 +20,9 @@ def _load_config():
             labels[key] = {'emoji': opts['emoji'], 'name': opts['name']}
             colors[key] = int(opts['color'].lstrip('#'), 16)
 
-    return periods, labels, colors, cfg.get('max_per_period', 3), cfg.get('blacklist', [])
+    return periods, labels, colors, cfg.get('max_per_period', 3), cfg.get('blacklist', []), cfg.get('show_flagged_content', False)
 
-PERIODS, LABELS, COLORS, MAX_PER_PERIOD, BLACKLIST = _load_config()
+PERIODS, LABELS, COLORS, MAX_PER_PERIOD, BLACKLIST, SHOW_FLAGGED = _load_config()
 
 def _is_blacklisted(mod):
     name = (mod.get('_sName') or '').lower()
@@ -41,8 +41,9 @@ def fetch_top_subs():
     for item in data:
         period = item.get('_sPeriod')
         if period in PERIODS and len(result[period]) < MAX_PER_PERIOD:
-            if not _is_blacklisted(item):
-                result[period].append(item)
+            if SHOW_FLAGGED or item.get('_sInitialVisibility') == 'show':
+                if not _is_blacklisted(item):
+                    result[period].append(item)
     return result
 
 def get_mod_key(mod):
