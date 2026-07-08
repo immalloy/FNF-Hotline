@@ -1,0 +1,30 @@
+name: FNF Mod Rankings
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install pillow && python src/run.py
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - run: |
+          git config user.name "FNF Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A state.json
+          git diff --staged --quiet || git commit -m "chore: update state"
+          git push
