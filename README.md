@@ -2,7 +2,7 @@
 
 ![banner](assets/banner.png)
 
-Posts the top FNF mods from GameBanana to a Discord channel every 2 hours — all time, year, 6 months, 3 months, month, week, and today.
+Posts the top FNF mods from GameBanana to a Discord channel every 2 hours, all time, year, 6 months, 3 months, month, week, and today.
 
 ![embed preview](assets/embed_preview.png)
 
