@@ -4,6 +4,8 @@
 
 Posts the top FNF mods from GameBanana to a Discord channel every 2 hours. Shows the best mods of all time, year, 6 months, 3 months, month, week, and today with a little image collage.
 
+![embed preview](assets/embed_preview.png)
+
 this is just a fun thing. commit names are stupid and vary. i don't take this project seriously.
 
 ## live view
