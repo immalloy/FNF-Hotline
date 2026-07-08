@@ -8,6 +8,27 @@ Posts the top FNF mods from GameBanana to a Discord channel every 2 hours. Shows
 
 this is just a fun thing. commit names are stupid and vary. i don't take this project seriously.
 
+## config
+
+Edit `config.json` to enable/disable periods, rename them, or change colors/emojis.
+
+```bash
+# see what periods are available from the API
+python scripts/list-periods.py
+```
+
+```json
+{
+  "max_per_period": 3,
+  "periods": {
+    "today": { "enabled": true,  "name": "Best of Today",   "emoji": "\u2b50", "color": "#f1c40f" },
+    "week":  { "enabled": false, "name": "Best of the Week", "emoji": "\ud83d\udd25", "color": "#e67e22" }
+  }
+}
+```
+
+Set `"enabled": false` to hide a period. Change `name`, `emoji`, or `color` to customize.
+
 ## live view
 
 See it live in [#funkin-hotline](https://discord.com/channels/1447703759638626327/1524145705936097351) on the [Funkin Hotline Discord](https://discord.gg/yQvZ69fsm3).
@@ -18,6 +39,7 @@ See it live in [#funkin-hotline](https://discord.com/channels/144770375963862632
 ├── src/           python source
 ├── assets/        images
 ├── scripts/       utility scripts
+├── config.json    enable/disable & customize periods
 ├── state.json     tracks last posted mods
 └── .github/
     └── workflows/ github actions cron

@@ -1,0 +1,12 @@
+{
+  "max_per_period": 3,
+  "periods": {
+    "alltime": { "enabled": true,  "name": "Best of All Time",   "emoji": "\uD83D\uDC51", "color": "#e74c3c" },
+    "year":    { "enabled": true,  "name": "Best of the Year",   "emoji": "\uD83C\uDFC5", "color": "#e91e63" },
+    "6month":  { "enabled": true,  "name": "Best of 6 Months",   "emoji": "\uD83D\uDCC5", "color": "#00bcd4" },
+    "3month":  { "enabled": true,  "name": "Best of 3 Months",   "emoji": "\uD83D\uDCC6", "color": "#4caf50" },
+    "month":   { "enabled": true,  "name": "Best of the Month",  "emoji": "\uD83C\uDFC6", "color": "#9b59b6" },
+    "week":    { "enabled": true,  "name": "Best of the Week",   "emoji": "\uD83D\uDD25", "color": "#e67e22" },
+    "today":   { "enabled": true,  "name": "Best of Today",      "emoji": "\u2B50",      "color": "#f1c40f" }
+  }
+}

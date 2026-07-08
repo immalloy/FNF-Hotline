@@ -1,30 +1,28 @@
 import json
+import os
 import urllib.request
 
 GAME_ID = 8694
 TOP_SUBS_URL = f'https://gamebanana.com/apiv12/Game/{GAME_ID}/TopSubs'
-PERIODS = ['alltime', 'year', '6month', '3month', 'month', 'week', 'today']
-MAX_PER_PERIOD = 3
 
-LABELS = {
-    'alltime': {'emoji': '\U0001f451', 'name': 'Best of All Time'},
-    'year':    {'emoji': '\U0001f3c5', 'name': 'Best of the Year'},
-    '6month':  {'emoji': '\U0001f4c5', 'name': 'Best of 6 Months'},
-    '3month':  {'emoji': '\U0001f4c6', 'name': 'Best of 3 Months'},
-    'month':   {'emoji': '\U0001f3c6', 'name': 'Best of the Month'},
-    'week':    {'emoji': '\U0001f525', 'name': 'Best of the Week'},
-    'today':   {'emoji': '\u2b50',    'name': 'Best of Today'},
-}
+_config_path = os.path.join(os.path.dirname(__file__), '..', 'config.json')
 
-COLORS = {
-    'alltime': 0xe74c3c,
-    'year':    0xe91e63,
-    '6month':  0x00bcd4,
-    '3month':  0x4caf50,
-    'month':   0x9b59b6,
-    'week':    0xe67e22,
-    'today':   0xf1c40f,
-}
+def _load_config():
+    with open(_config_path, encoding='utf-8') as f:
+        cfg = json.load(f)
+
+    periods = []
+    labels = {}
+    colors = {}
+    for key, opts in cfg['periods'].items():
+        if opts.get('enabled', True):
+            periods.append(key)
+            labels[key] = {'emoji': opts['emoji'], 'name': opts['name']}
+            colors[key] = int(opts['color'].lstrip('#'), 16)
+
+    return periods, labels, colors, cfg.get('max_per_period', 3)
+
+PERIODS, LABELS, COLORS, MAX_PER_PERIOD = _load_config()
 
 def fetch_top_subs():
     req = urllib.request.Request(TOP_SUBS_URL, headers={'User-Agent': 'Funkin-Hotline/1.0'})
