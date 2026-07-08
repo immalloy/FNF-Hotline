@@ -47,7 +47,7 @@ def _req_multipart(url, fields, image_bytes, filename, method='POST'):
     body = b''
 
     body += f'--{boundary}\r\n'.encode()
-    body += f'Content-Disposition: form-data; name="file"; filename="{filename}"\r\n'.encode()
+    body += f'Content-Disposition: form-data; name="files[0]"; filename="{filename}"\r\n'.encode()
     body += b'Content-Type: image/png\r\n\r\n'
     body += image_bytes
     body += b'\r\n'
@@ -75,9 +75,9 @@ def _send(period, period_mods, filename, existing_id, base):
     if existing_id:
         try:
             if image_bytes:
-                req = _req_multipart(f'{base}/messages/{existing_id}', {'embeds': [embed]}, image_bytes, filename, 'PATCH')
+                req = _req_multipart(f'{base}/messages/{existing_id}', {'embeds': [embed], 'attachments': [{'id': 0, 'filename': filename}]}, image_bytes, filename, 'PATCH')
             else:
-                req = _req(f'{base}/messages/{existing_id}', {'embeds': [embed]}, 'PATCH')
+                req = _req(f'{base}/messages/{existing_id}', {'embeds': [embed], 'attachments': []}, 'PATCH')
             with urllib.request.urlopen(req, timeout=15):
                 pass
         except HTTPError as e:
@@ -88,7 +88,7 @@ def _send(period, period_mods, filename, existing_id, base):
 
     if not msg_id:
         if image_bytes:
-            req = _req_multipart(f'{base}?wait=true', {'embeds': [embed], 'username': 'Funkin Hotline'}, image_bytes, filename)
+            req = _req_multipart(f'{base}?wait=true', {'embeds': [embed], 'username': 'Funkin Hotline', 'attachments': [{'id': 0, 'filename': filename}]}, image_bytes, filename)
         else:
             req = _req(f'{base}?wait=true', {'embeds': [embed], 'username': 'Funkin Hotline'})
         with urllib.request.urlopen(req, timeout=15) as resp:
