@@ -4,9 +4,9 @@
 
 Posts the top FNF mods from GameBanana to a Discord channel every 2 hours, all time, year, 6 months, 3 months, month, week, and today.
 
-![embed preview](assets/embed_preview.png)
+Funkin Hotline is the ranking companion to [Funkin Dispatch](https://github.com/immalloy/Funkin-Dispatch). Dispatch sends separate posts when a mod is new or changes position; Hotline maintains one editable ranking message per period.
 
-> this is just a fun thing. commit names are stupid and vary. i don't take this project seriously.
+![embed preview](assets/embed_preview.png)
 
 ### docs
 
