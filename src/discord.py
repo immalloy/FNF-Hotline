@@ -24,7 +24,7 @@ def _build_embed(period, mods, attachment_name=None, change_count=None):
         author = mod['_aSubmitter']['_sName']
         mod_url = mod['_sProfileUrl']
         safe_name = _esc(mod['_sName']).replace('[', '\\[').replace(']', '\\]')
-        lines.append(f'**{rank}.** [{safe_name}]({mod_url}) — {_esc(author)}')
+        lines.append(f'**{rank}.** [{safe_name}]({mod_url}) - {_esc(author)}')
 
     embed = {
         'title': f'{label["emoji"]} {label["name"]}',
